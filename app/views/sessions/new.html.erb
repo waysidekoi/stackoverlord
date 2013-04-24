@@ -1,7 +1,7 @@
 <h1>Log in</h1>
 
 <%= form_tag sessions_path do %>
-<%= render :errors_display, :layout => false if flash[:notice] %>
+<%= render "shared/errors_display", :layout => false if flash[:notice] %>
 
 <p>
   <%= label_tag :email %><br>

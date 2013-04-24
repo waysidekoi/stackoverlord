@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = @user.errors.full_messages
-      render :new
+      redirect_to sign_up_path
     end
 
   end
