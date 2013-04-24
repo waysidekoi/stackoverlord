@@ -8,9 +8,15 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- Load header partial here -->
+    <header>
+      <h1>Welcome to Stack Overlord</h1>
+      <%= image_tag("overlord.gif", :alt => "hi") %>
+      <%= yield :header %>
+    </header>
     <%= yield %>
-    <!-- Load footer partial here -->
+    <footer>
+      <%= yield :footer %>
+    </footer>
   </div>
 </body>
 </html>
