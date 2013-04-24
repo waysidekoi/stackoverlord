@@ -1,0 +1,11 @@
+<%= form_tag questions_path do %>
+<p>
+<%= label_tag :Title %>
+<%= text_field_tag :title, params[:title] %><br>
+</p>
+<div class="details">
+  <%= text_area_tag :details, params[:details] %>
+</div>
+
+<%= submit_tag value = "Post Your Question" %>
+<% end %>
