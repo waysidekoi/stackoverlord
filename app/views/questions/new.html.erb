@@ -1,11 +1,11 @@
-<%= form_tag questions_path do %>
+<%= form_for @question do |f| %>
 <p>
-<%= label_tag :Title %>
-<%= text_field_tag :title, params[:title] %><br>
+<%= f.label :Title %>
+<%= f.text_field :title, :placeholder => "what's your programming question? be specific.", :class => 'title-text_field' %><br>
 </p>
 <div class="details">
-  <%= text_area_tag :details, params[:details] %>
+  <%= f.text_area :details, :class => 'details-text_field' %>
 </div>
 
-<%= submit_tag value = "Post Your Question" %>
+<%= f.submit value = "Post Your Question", :class => 'post-button' %>
 <% end %>

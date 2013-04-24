@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+.title-text_field {
+  width: 500px;
+}
+
+.details-text_field {
+  width: 500px;
+}
+
+.post-button {
+
+}
