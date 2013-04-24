@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Stack Overlord</h1>
-    <%= link_to image_tag("overlord", :border =>0 ), target-object , :title => "Stack Overlord" %>
-    <%= yield :header %>
-  </header>
-  <%= yield %>
-  <footer>
-    <%= yield :footer %>
-  </footer>
+  <div class="wrapper">
+    <header>
+      <h1>Welcome to Stack Overlord</h1>
+      <%= link_to image_tag("overlord", :border =>0 ), target-object , :title => "Stack Overlord" %>
+      <%= yield :header %>
+    </header>
+    <%= yield %>
+    <footer>
+      <%= yield :footer %>
+    </footer>
+  </div>
 </body>
 </html>

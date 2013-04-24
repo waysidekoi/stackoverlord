@@ -1,6 +1,11 @@
-class User < ActiveRecord::Base
-  attr_accessible :email, :alias, :reputation
+require 'bcrypt'
 
+class User < ActiveRecord::Base
+  has_secure_password
+
+  attr_accessible :email, :alias, :reputation, :password
+
+  validates_confirmation_of :password
   validates_presence_of :email, :alias    #implement password validations
   validates_uniqueness_of :email, :alias
 
@@ -8,6 +13,5 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :votes
 
-  # has_many :question_votes, :class_name => 'votes'
-  # has_many :answer_votes, :class_name => ''
+
 end
