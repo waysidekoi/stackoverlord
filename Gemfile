@@ -23,7 +23,11 @@ end
 
 gem 'jquery-rails'
 
-group :test do
+group :development, :test do
+  gem "rspec"
+  gem "rspec-rails"
+  gem "autotest"
+  gem "autotest-standalone"
   gem "nyan-cat-formatter"
 end
 
