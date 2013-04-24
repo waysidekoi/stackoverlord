@@ -1,0 +1,8 @@
+<div class="error_messages">
+  <h2>Form is invalid</h2>
+  <ul>
+    <% flash[:notice].each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>

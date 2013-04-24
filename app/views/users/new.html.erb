@@ -1,0 +1,27 @@
+<!--- new user signup form -->
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+<%= render "shared/errors_display", :layout => false if flash[:notice] %>
+
+
+<p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <%= f.label :alias %><br>
+  <%= f.text_field :alias %>
+</p>
+
+<p>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+</p>
+
+
+
+<p><%= f.submit %></p>
+
+<% end %>
