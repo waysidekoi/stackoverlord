@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def show
+    @answer = Answer.new
     @question = Question.find(params[:id])
     @answers = @question.answers
   end

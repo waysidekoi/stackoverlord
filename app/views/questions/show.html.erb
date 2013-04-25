@@ -1,20 +1,29 @@
 <div class="title">
   <h3>
-  <%= @question.title %><br>
-</h3>
-</div>
-<hr>
-<div class="votes"></div>
-<div class="details">
-  <%= @question.details %>
-</div>  
-<div class="answers-subheader">
-  <h3>
-    <%= @answers.count %> Answers
+    <%= @question.title %><br>
   </h3>
 </div>
 <hr>
 
+<div class="answer_details_etc">
+  <div class="votes">
+  <%= link_to image_tag("unburrow.gif", :size => "40x40"), vote_path(@question.current_user_vote(current_user).id, :xaction => "upvote"), :method => "put" %>
+  <span class="score <%= @question.score > 0 ? "good" : "bad" %>">
+    <%= @question.score %>
+  </span>
+  <%= link_to image_tag("burrow.gif", :size => "40x40"),  vote_path(@question.current_user_vote(current_user).id, :xaction => "downvote"), :method => "put" %>
+  </div>
+  <div class="details">
+    <%= @question.details %>
+  </div>  
+
+</div>
+  <div class="answers-subheader">
+    <h3>
+      <%= @answers.count %> Answers
+    </h3>
+  </div>
+<hr>
 <% @answers.each do |answer| %>
 <%= render :partial => "shared/answer_display", locals: { answer: answer } %>
 <% end %>

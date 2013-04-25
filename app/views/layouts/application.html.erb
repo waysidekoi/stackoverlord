@@ -6,52 +6,47 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
   <div class="top-nav">
-      <% unless current_user %>
-      <%= link_to "log in", log_in_url %>
-      <%= link_to "sign up", sign_up_url %>
-      <% else %>
-      <%= link_to "log out", '/exit', :method => :delete %>
-      <% end %>
-      <%= text_field_tag :search, nil, :placeholder => "search" %>
-    </div>
-    
+    <% unless current_user %>
+    <%= link_to "log in", log_in_url %>
+    <%= link_to "sign up", sign_up_url %>
+    <% else %>
+    <%= link_to "log out", '/exit', :method => :delete %>
+    <% end %>
+    <%= text_field_tag :search, nil, :placeholder => "search" %>
+  </div>
+
   <div id="container">
 
-  <div id="header">
-    
+    <div id="header">
+      <div class="logo">
+        <%= link_to image_tag("overlord.gif", :alt => "hi"), root_path %>
+        <h1><%= link_to "stackOverlord", root_path %></h1>
+      </div>
 
-    <div class="logo">
-      <%= link_to image_tag("overlord.gif", :alt => "hi"), root_path %>
-      <span>stackOverlord</span>
+      <div class="buttons">
+        <ul>
+          <li><%= link_to "Ask Question", :action => "new", :controller => "questions" %></li>
+          <li><a href="">Questions</a></li>
+          <li><a href="">Tags</a></li>
+        </ul>
+      </div>
     </div>
 
-
-    <div class="buttons">
-      <ul>
-        <li><%= link_to "Ask Question", :action => "new", :controller => "questions" %></li>
-        <li><a href="">Questions</a></li>
-        <li><a href="">Tags</a></li>
-      </ul>
+    <div class="content">
+      <div class="subheader"><%= render partial: "shared/subheader" %></div>
+      <%= yield %>
     </div>
 
+    <footer>
+      <%= yield :footer %>
+    </footer>
   </div>
-
-
-
-  <div class="content">
-    <div class="subheader"><%= render partial: "shared/subheader" %></div>
-    <%= yield %>
-  </div>
-
-  <footer>
-    <%= yield :footer %>
-  </footer>
-</div>
 </body>
 </html>
