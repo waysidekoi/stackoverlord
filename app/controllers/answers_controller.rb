@@ -1,5 +1,11 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.create()
+    question = Question.find(params[:question_id])
+    answer = question.answers.create(details: params[:details])
+    answer.user = current_user
+    answer.save
+    
+    redirect_to question_path(question)
+
   end
 end

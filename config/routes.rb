@@ -4,7 +4,7 @@ Stackoverflow::Application.routes.draw do
   resources :users
   resources :sessions
   resources :questions
-
+  resources :answers
   
 
   get "sign_up" => "users#new", as: "sign_up"  #allows you to access this route using 'sign_up_path' or 'sign_up_url'. Also lets you override the routes created by #resources.
