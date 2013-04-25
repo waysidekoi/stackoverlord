@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   def show
+    @question = Question.find(params[:id])
+    @answers = @question.answers
   end
 
   def new
@@ -7,8 +9,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    current_user.questions.create(params[:question])
+    question = current_user.questions.create(params[:question])
 
-    redirect_to root_path
+    redirect_to question_path(question)
   end
 end

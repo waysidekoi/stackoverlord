@@ -11,6 +11,10 @@ Stackoverflow::Application.routes.draw do
 
   get "log_in" => "sessions#new", as: "log_in"
 
+  get "log_in" => "sessions#new", as: "log_in"
+
+  match 'exit' => 'sessions#destroy', :as => :logout
+
   root :to => "home#index"
 
   ##logout?

@@ -1,0 +1,8 @@
+<h3>Your Answer</h3>
+<%= form_tag answers_path %>
+<%= hidden_field :question, :value => @question %>
+<%= text_area_tag :answer %>
+
+<% if question.user == current_user %>
+<%= button_to "Answer Your Question", { :action => "create" } %>
+<% end %>

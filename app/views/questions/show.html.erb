@@ -1,0 +1,22 @@
+<div class="title">
+  <h3>
+  <%= @question.title %><br>
+</h3>
+</div>
+<hr>
+<div class="votes"></div>
+<div class="details">
+  <%= @question.details %>
+</div>  
+<div class="answers-subheader">
+  <h3>
+    <%= @answers.count %> Answers
+  </h3>
+</div>
+<hr>
+
+<% @answers.each do |answer| %>
+<%= render :partial => "shared/answer_display", locals: { answer: answer } %>
+<% end %>
+
+<%= render :partial => "shared/answer_form", locals: { question: @question } %>
