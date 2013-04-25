@@ -8,6 +8,81 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+
  */
+
+
+body, p {
+  font-family: 'Noto Sans', sans-serif;
+  color: #181818;
+}
+
+.wrapper {
+  width: 680px;
+  margin: 0 auto;
+}
+
+
+a, input {
+  text-decoration: none;
+  color: #990066;
+}
+
+/* HEADER */
+
+header {
+    background: #fafada;
+    border-radius: 10px;
+    border:2px solid black;
+}
+
+h1 {margin:10px 5px;}
+
+.prenav {
+    width:680px;
+    height:70px;
+    margin: 10px;
+}
+
+.prenav p {
+    float:left;
+    margin:5px 46px;
+    color: purple;
+    text-shadow: 1px 1px rgba(155,0,200,.5);
+}
+.login ul {
+
+}
+
+.login li {
+    width:80px;
+    float:left;
+    list-style: none;
+    margin: 3px 40px;
+    border-radius: 8px;
+    border: 2px solid #ddaa33;
+    box-shadow: 2px 3px rgba(0,0,0,.6);
+    background: #666;
+}
+.login li a {
+    color: white;
+    margin: 2px 5px;
+}
+
+header img { float: left; }
+header h1 { float: left;}
+
+.title-text_field {
+  width: 500px;
+}
+
+.details-text_field {
+  width: 500px;
+}
+
+.post-button {
+
+}
+
+

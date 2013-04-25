@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stackoverflow</title>
+  <title>Stackoverlord</title>
+  <%= stylesheet_link_tag    "normalize", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="wrapper">
     <header>
-      <h1>Welcome to Stack Overlord</h1>
-      <%= image_tag("overlord.gif", :alt => "hi") %>
+      <div class="prenav">
+          <%= link_to image_tag("overlord.gif", :alt => "hi"), root_path %>
+          <h1>Welcome to Stack Overlord</h1>
+        <div class="login">
+          <% if not current_user %>
+          <ul>
+            <li><%= link_to "Log In", log_in_url %></li>
+            <li><%= link_to "Sign Up", sign_up_url %></li>
+          </ul>
+            <% else %>
+            <p>
+              Hi <%= current_user.alias %>
+            </p>
+            <ul>
+              <li><%= link_to "Log out", '/exit', :method => :delete if current_user %></li>
+            </ul>
+            <% end %>
+          </ul>
+        </div>
+      </div>
       <%= yield :header %>
     </header>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
     <footer>
       <%= yield :footer %>
     </footer>
