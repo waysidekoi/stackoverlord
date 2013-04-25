@@ -1,8 +1,0 @@
-<% if current_user %>
-<p> logged in yo </p>
-<% else %>
-<p> not logged in yo </p>
-<% end %>
-
-<%= button_to "Ask Question", :action => "new", :controller => "questions" if current_user %>
-<%= link_to "Ask Question", "/sign_up" if not current_user %>

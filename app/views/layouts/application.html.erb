@@ -7,38 +7,51 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-  <div class="wrapper">
-    <header>
-      <div class="prenav">
-          <%= link_to image_tag("overlord.gif", :alt => "hi"), root_path %>
-          <h1>Welcome to Stack Overlord</h1>
-        <div class="login">
-          <% if not current_user %>
-          <ul>
-            <li><%= link_to "Log In", log_in_url %></li>
-            <li><%= link_to "Sign Up", sign_up_url %></li>
-          </ul>
-            <% else %>
-            <p>
-              Hi <%= current_user.alias %>
-            </p>
-            <ul>
-              <li><%= link_to "Log out", '/exit', :method => :delete if current_user %></li>
-            </ul>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <%= yield :header %>
-    </header>
-    <div class="content">
-      <%= yield %>
+  <div class="top-nav">
+      <% unless current_user %>
+      <%= link_to "log in", log_in_url %>
+      <%= link_to "sign up", sign_up_url %>
+      <% else %>
+      <%= link_to "log out", '/exit', :method => :delete %>
+      <% end %>
+      <%= text_field_tag :search, nil, :placeholder => "search" %>
     </div>
-    <footer>
-      <%= yield :footer %>
-    </footer>
+    
+  <div id="container">
+
+  <div id="header">
+    
+
+    <div class="logo">
+      <%= link_to image_tag("overlord.gif", :alt => "hi"), root_path %>
+      <span>stackOverlord</span>
+    </div>
+
+
+    <div class="buttons">
+      <ul>
+        <li><%= link_to "Ask Question", :action => "new", :controller => "questions" %></li>
+        <li><a href="">Questions</a></li>
+        <li><a href="">Tags</a></li>
+      </ul>
+    </div>
+
   </div>
+
+
+
+  <div class="content">
+    <div class="subheader"><%= render partial: "shared/subheader" %></div>
+    <%= yield %>
+  </div>
+
+  <footer>
+    <%= yield :footer %>
+  </footer>
+</div>
 </body>
 </html>
