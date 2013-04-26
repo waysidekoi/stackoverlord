@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessible :title, :details
-
+  scope :all_votes, joins(:votes).where('votable_type = ?', "Question")
+  
 
   has_many :votes, :as => :votable
   has_many :answers
