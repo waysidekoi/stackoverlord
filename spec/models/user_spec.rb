@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   let (:user) { User.create(email: "a@b.com", password:"3", :alias => "wayne") }
+  
   it "should create a user when passed good email, password, and alias parameters" do
     user.should be_an_instance_of(User)
   end
