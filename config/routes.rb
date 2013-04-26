@@ -4,11 +4,19 @@ Stackoverflow::Application.routes.draw do
   match "/questions/ask" => "questions#new"
   match '/question/:id/vote' => "votes#create", :as => :vote
 
-  resources :users
+  # resources :users, only: :create
   resources :sessions
-  resources :questions
+  # resources :questions
   resources :answers
 
+  # get "new_user" => "users#new", as: "user"
+
+  # get "create" => "users#create", as: "create"
+
+  get "questions/:id" => "questions#show", :as => :question
+  post "questions" => "questions#create"
+
+  post "users" => "users#create", as: "users"
 
   get "sign_up" => "users#new", as: "sign_up"  #allows you to access this route using 'sign_up_path' or 'sign_up_url'. Also lets you override the routes created by #resources.
 
@@ -16,7 +24,7 @@ Stackoverflow::Application.routes.draw do
 
   get "log_in" => "sessions#new", as: "log_in"
 
-  match 'exit' => 'sessions#destroy', :as => :logout
+  match 'exit' => 'sessions#destroy', :as => "logout"
   
 
   root :to => "home#index"

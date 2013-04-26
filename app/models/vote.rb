@@ -1,8 +1,8 @@
 class Vote < ActiveRecord::Base
   scope :upvotes, where("status = ?", 1)
   scope :downvotes, where("status = ?", -1)
-  
-  attr_accessible :user
+
+  validates_presence_of :status
 
   belongs_to :votable, :polymorphic => true
   belongs_to :user

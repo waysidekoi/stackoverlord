@@ -25,6 +25,7 @@ end
 gem 'better_errors'
 gem 'jquery-rails'
 gem 'debugger'
+gem 'shoulda-matchers'
 
 group :development, :test do
   gem "rspec"

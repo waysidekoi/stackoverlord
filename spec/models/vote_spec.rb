@@ -31,4 +31,23 @@ describe Vote do
       vote.status.should be(0)
     end
   end
+
+
+  context 'i love associations' do
+    it 'should belong to a user' do
+      Vote.reflect_on_association(:user).macro.should be :belongs_to
+    end
+    it 'should belong to votable' do
+      Vote.reflect_on_association(:votable).macro.should be :belongs_to
+    end
+    it 'should be polymorphic' do
+      Vote.reflect_on_association(:votable).options[:polymorphic].should be_true
+    end
+  end
+
+  describe '#status' do
+    it 'should have a default status of 0' do
+      vote.status.should be_zero
+    end
+  end
 end
