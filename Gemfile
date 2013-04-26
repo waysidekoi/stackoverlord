@@ -26,6 +26,8 @@ gem 'better_errors'
 gem 'jquery-rails'
 gem 'debugger'
 gem 'shoulda-matchers'
+gem 'capybara'
+gem 'pry'
 
 group :development, :test do
   gem "rspec"

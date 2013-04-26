@@ -28,4 +28,5 @@ describe User do
   it "should require a valid email" do
     expect { User.create(email: "@d@f@@@s@@@@@@@", :alias => "eric", password: "xab") }.to change{ User.count }.by(0)
   end
+
 end
