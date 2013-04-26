@@ -1,0 +1,11 @@
+<h3>Your Answer</h3>
+<%= form_for @answer do |f| %>
+  <%= f.hidden_field :question_id, value: @question.id %>
+  <%= f.text_area :details %>
+
+  <% if question.belongs_to?(current_user) %>
+    <%= f.submit "Answer Your Question" %>
+  <% else %>
+    <%= f.submit "Post Your Answer" %>
+  <% end %>
+<% end %>

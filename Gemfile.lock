@@ -34,7 +34,11 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-standalone (4.5.11)
     bcrypt-ruby (3.0.1)
+    better_errors (0.8.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.0.4)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -88,6 +92,10 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+<<<<<<< HEAD
+=======
+    redcarpet (2.2.2)
+>>>>>>> master
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -130,11 +138,16 @@ DEPENDENCIES
   autotest
   autotest-standalone
   bcrypt-ruby
+  better_errors
   coffee-rails (~> 3.2.1)
   jquery-rails
   nyan-cat-formatter
   pg
   rails (= 3.2.13)
+<<<<<<< HEAD
+=======
+  redcarpet
+>>>>>>> master
   rspec
   rspec-rails
   sass-rails (~> 3.2.3)

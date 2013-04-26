@@ -1,5 +1,3 @@
-<% if current_user %>
-<p> logged in yo </p>
-<% else %>
-<p> not logged in yo </p>
+<% @questions.each do |question| %>
+<%= render partial: "shared/index_questions_display", locals: { question: question } %>
 <% end %>

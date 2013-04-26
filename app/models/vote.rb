@@ -7,14 +7,17 @@ class Vote < ActiveRecord::Base
 
   def upvote!
     self.status = 1
+    self.save
   end
 
   def downvote!
     self.status = -1
+    self.save
   end
 
   def nullify_vote!
     self.status = 0
+    self.save
   end
 
 end
