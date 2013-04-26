@@ -175,6 +175,18 @@ header h1 { float: left;}
   float: left;
   color: red;
 }
+
+.answer-details {
+  float: right;
+}
+
+.answer {
+    min-height: 112px;
+    width:91%;
+    float:left;
+    border-bottom: 1px solid gray;
+}
+
 .answers-subheader h3{
   margin-bottom: 0;
 }

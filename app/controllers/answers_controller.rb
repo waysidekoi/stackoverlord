@@ -10,6 +10,5 @@ class AnswersController < ApplicationController
     answer.save
     
     redirect_to question_path(question)
-
   end
 end

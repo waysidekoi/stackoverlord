@@ -1,0 +1,9 @@
+<div class="votes">
+
+  <%= link_to image_tag("unburrow.gif", :size => "40x40"), vote_path(object_type: object.class, object_id: object, vote_type: "upvote") %>
+  <span class="score <%= object.score > 0 ? "good" : "bad" %>">
+    <%= object.score %>
+  </span>
+  
+  <%= link_to image_tag("burrow.gif", :size => "40x40"), vote_path(object_type: object.class, object_id: object, vote_type: "downvote") %>
+</div>

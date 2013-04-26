@@ -24,6 +24,7 @@ end
 
 gem 'better_errors'
 gem 'jquery-rails'
+gem 'debugger'
 
 group :development, :test do
   gem "rspec"

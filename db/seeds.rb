@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: "wayne@dbc.com", alias: "wayne")
-User.create(email: "eric@dbc.com", alias: "Eric")
+User.create(email: "wayne@dbc.com", alias: "wayne", password: "happy")
+User.create(email: "eric@dbc.com", alias: "Eric", password: "sad")
 
 User.find(1).questions.create(title: "What is DBC?", details: "stuff")
 User.find(2).questions.create(title: "Where's the best place to eat", details: "stuff")

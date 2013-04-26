@@ -10,4 +10,9 @@ class Answer < ActiveRecord::Base
   def md_details
     md_render(details).html_safe
   end
+
+  def score
+    return 0 if self.votes.empty?
+    self.votes.map { |x| x.status }.inject(:+)
+  end
 end
