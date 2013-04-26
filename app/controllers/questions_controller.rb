@@ -11,8 +11,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = current_user.questions.create(params[:question])
+    question = current_user.questions.new(params[:question])
 
-    redirect_to question_path(question)
+    if question.save
+      redirect_to question_path(question)
+    else
+      flash[:notice] = ["Ermagherd ernter serm terxt"]
+      redirect_to (:back)
+    end
   end
 end
