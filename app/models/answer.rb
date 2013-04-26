@@ -12,7 +12,6 @@ class Answer < ActiveRecord::Base
   end
 
   def score
-    return 0 if self.votes.empty?
-    self.votes.map { |x| x.status }.inject(:+)
+    self.votes.sum(:status)
   end
 end

@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessible :title, :details
 
+
   has_many :votes, :as => :votable
   has_many :answers
   belongs_to :user
@@ -16,7 +17,6 @@ class Question < ActiveRecord::Base
   end
 
   def score
-    return 0 if self.votes.empty?
-    self.votes.map { |x| x.status }.inject(:+)
+    self.votes.sum(:status)
   end
 end
